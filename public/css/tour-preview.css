@@ -1,0 +1,297 @@
+/* Tour Preview Overlay Styles */
+.tour-preview-wrapper {
+    position: relative;
+    cursor: pointer;
+}
+
+.tour-preview-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    background: linear-gradient(to bottom, 
+                rgba(0, 0, 0, 0.3) 0%, 
+                rgba(0, 0, 0, 0.5) 100%);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.tour-preview-content {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    color: #ffffff;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.tour-preview-content h5 {
+    color: #ffffff !important;
+    font-size: 0.95rem;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.tour-preview-content .badge {
+    font-size: 0.65rem;
+    padding: 4px 8px;
+    white-space: nowrap;
+}
+
+.tour-preview-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.preview-item {
+    display: flex;
+    gap: 10px;
+    align-items: start;
+}
+
+.preview-item i {
+    font-size: 1rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+    color: #4ade80;
+    opacity: 0.95;
+}
+
+.preview-item small {
+    font-size: 0.65rem;
+    line-height: 1.2;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    font-weight: 600;
+}
+
+.preview-item strong {
+    font-size: 0.85rem;
+    line-height: 1.3;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.preview-item .text-success {
+    color: #4ade80 !important;
+    font-size: 0.75rem !important;
+    font-weight: 500 !important;
+}
+
+.preview-item.border-top {
+    border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
+    padding-top: 8px;
+    margin-top: 4px;
+}
+
+.combo-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+.tour-preview-wrapper:hover .combo-card {
+    transform: scale(1.03);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.tour-preview-content .btn-primary {
+    background: linear-gradient(135deg, #4ade80 0%, #3b82f6 100%);
+    color: #ffffff;
+    border: none;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 10px 16px;
+    transition: all 0.3s ease;
+    margin-top: 8px;
+    box-shadow: 0 4px 12px rgba(74, 222, 128, 0.3);
+    border-radius: 8px;
+}
+
+.tour-preview-content .btn-primary:hover {
+    background: linear-gradient(135deg, #3b82f6 0%, #4ade80 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(74, 222, 128, 0.5);
+}
+
+.preview-item .fs-5 {
+    font-size: 1.15rem !important;
+    color: #4ade80 !important;
+    font-weight: 800;
+    text-shadow: 0 2px 8px rgba(74, 222, 128, 0.3);
+}
+
+.bg-primary-subtle {
+    background: rgba(255, 255, 255, 0.15) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tour-preview-content::-webkit-scrollbar {
+    width: 3px;
+}
+
+.tour-preview-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 2px;
+}
+
+.tour-preview-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+}
+
+.tour-preview-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* Colorful icons */
+.preview-item:nth-child(1) i { color: #f59e0b; } /* Amber */
+.preview-item:nth-child(2) i { color: #3b82f6; } /* Blue */
+.preview-item:nth-child(3) i { color: #8b5cf6; } /* Purple */
+.preview-item:nth-child(4) i { color: #ec4899; } /* Pink */
+.preview-item.border-top i { color: #4ade80; } /* Green */
+
+/* Custom Alpine transition classes for overlay */
+.preview-enter {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.preview-enter-start {
+    opacity: 0;
+    transform: translateY(15px) scale(0.97);
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+}
+.preview-enter-end {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+.preview-leave {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.preview-leave-start {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+.preview-leave-end {
+    opacity: 0;
+    transform: translateY(15px) scale(0.97);
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+}
+
+/* Stagger animation for internal items on hover */
+.tour-preview-content .preview-item {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tour-preview-wrapper:hover .preview-item {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.tour-preview-content .preview-item:nth-child(1) { transition-delay: 0.08s; }
+.tour-preview-content .preview-item:nth-child(2) { transition-delay: 0.14s; }
+.tour-preview-content .preview-item:nth-child(3) { transition-delay: 0.2s; }
+.tour-preview-content .preview-item:nth-child(4) { transition-delay: 0.26s; }
+.tour-preview-content .preview-item:nth-child(5) { transition-delay: 0.32s; }
+.tour-preview-content .preview-item.border-top { transition-delay: 0.38s; }
+
+.tour-preview-content .btn-primary {
+    opacity: 0;
+    transform: scale(0.92) translateY(10px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: 0.44s;
+}
+
+.tour-preview-wrapper:hover .tour-preview-content .btn-primary {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 767.98px) {
+    .tour-preview-content {
+        padding: 16px;
+    }
+    
+    .tour-preview-content h5 {
+        font-size: 0.9rem;
+    }
+    
+    .preview-item {
+        gap: 8px;
+    }
+    
+    .preview-item i {
+        font-size: 0.95rem;
+    }
+    
+    .preview-item strong {
+        font-size: 0.8rem;
+    }
+    
+    .preview-item .fs-5 {
+        font-size: 1rem !important;
+    }
+}
+
+/* Favorite Button Styles in Tour Preview Overlay */
+.tour-preview-overlay .favorite-form {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 99;
+    margin: 0;
+}
+
+.tour-preview-overlay .favorite-btn {
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    color: #6c757d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tour-preview-overlay .favorite-btn i {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.tour-preview-overlay .favorite-btn:hover {
+    transform: scale(1.08);
+    background: #ffffff;
+}
+
+.tour-preview-overlay .favorite-btn.active {
+    color: #ff3366;
+}
+
+.tour-preview-overlay .favorite-btn.active i {
+    color: #ff3366;
+}
